@@ -36,11 +36,10 @@ function findElement(arr, value) {
  *    2 => [ 1, 3 ]
  *    5 => [ 1, 3, 5, 7, 9 ]
  */
-function generateOdds(len) {
-  const newArr = Array(len).fill();
-  console.log(newArr);
-  return newArr;
-  // throw new Error('Not implemented');
+function generateOdds(/* len */) {
+  // const newArr = Array(len).fill();
+  // return newArr;
+  throw new Error('Not implemented');
 }
 
 
