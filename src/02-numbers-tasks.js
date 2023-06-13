@@ -116,10 +116,11 @@ function getLinearEquationRoot(a, b) {
  */
 function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
   // const up = ((x1 * y1) + (x2 * y2));
-  // const down = (Math.sqrt((x1 ** 2) + (x2 ** 2))) * (Math.sqrt((y1 ** 2) + (y2 ** 2)));
-  // const cos = Math.cos(up / down);
-  // const acos = Math.acos(cos);
-  // return acos;
+  // const downX = (Math.sqrt(x1 + x2));
+  // const downY = (Math.sqrt(y1 + y2));
+  // const down = Math.abs(downX) * Math.abs(downY);
+  // const angle = up / down;
+  // return Math.cos(angle);
   throw new Error('Not implemented');
 }
 
@@ -135,8 +136,10 @@ function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
  *     5     => 5
  *     0     => 0
  */
-function getLastDigit(/* value */) {
-  throw new Error('Not implemented');
+function getLastDigit(value) {
+  const digArr = value.toString().split('');
+  const res = digArr.pop();
+  return +res;
 }
 
 
@@ -151,8 +154,9 @@ function getLastDigit(/* value */) {
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
+function parseNumberFromString(value) {
+  return +value;
+  // throw new Error('Not implemented');
 }
 
 /**
@@ -168,8 +172,9 @@ function parseNumberFromString(/* value */) {
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelepipedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getParallelepipedDiagonal(a, b, c) {
+  return Math.sqrt((a ** 2) + (b ** 2) + (c ** 2));
+  // throw new Error('Not implemented');
 }
 
 
@@ -230,8 +235,16 @@ function isPrime(/* n */) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  const isNum = +value;
+  let res = value;
+  if (isNum.isNaN) {
+    res = def;
+  } else {
+    res = +value;
+  }
+  return res;
+  // throw new Error('Not implemented');
 }
 
 module.exports = {
