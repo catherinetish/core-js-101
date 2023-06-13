@@ -114,14 +114,11 @@ function getLinearEquationRoot(a, b) {
  *   (0,1) (0,1)     => 0
  *   (0,1) (1,2)     => 0
  */
-function getAngleBetweenVectors(/* x1, y1, x2, y2 */) {
-  // const up = ((x1 * y1) + (x2 * y2));
-  // const downX = (Math.sqrt(x1 + x2));
-  // const downY = (Math.sqrt(y1 + y2));
-  // const down = Math.abs(downX) * Math.abs(downY);
-  // const angle = up / down;
-  // return Math.cos(angle);
-  throw new Error('Not implemented');
+function getAngleBetweenVectors(x1, y1, x2, y2) {
+  const up = (x1 * x2) + (y1 * y2);
+  const down = Math.sqrt((x1 ** 2) + (y1 ** 2)) * Math.sqrt((x2 ** 2) + (y2 ** 2));
+  const angle = up / down;
+  return Math.acos(angle);
 }
 
 /**
@@ -197,6 +194,8 @@ function getParallelepipedDiagonal(a, b, c) {
  */
 function roundToPowerOfTen(/* num, pow */) {
   throw new Error('Not implemented');
+  // 1234, 2 округляет( 1200 + Math.round( 0,34) * 10 ^ 2).
+  // 1678, 3 округляет  (1000 +  Math.round( 0,678) * 10 ^ 3)
 }
 
 /**
@@ -236,15 +235,13 @@ function isPrime(/* n */) {
  *   toNumber(new Number(42), 0) => 42
  */
 function toNumber(value, def) {
-  const isNum = +value;
   let res = value;
-  if (isNum.isNaN) {
+  if (Number.isNaN(+value)) {
     res = def;
   } else {
     res = +value;
   }
   return res;
-  // throw new Error('Not implemented');
 }
 
 module.exports = {
